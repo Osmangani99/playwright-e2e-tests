@@ -50,3 +50,12 @@ Go to the home page
 Assert if the title is correct
 Assert header text
 Done! 🎉
+
+## Option 1 — Install VS Code Extension
+
+- VS Code Extension -> Playwright Test for VSCode
+
+## Option 2 — CLI
+Help -> `npx playwright codegen` --help
+CLI basic command -> `npx playwright codegen`
+With URL -> `npx playwright codegen` https://katalon-demo-cura.herokuapp.com/
