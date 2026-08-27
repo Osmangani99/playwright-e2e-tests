@@ -1,18 +1,36 @@
 import { test, expect} from "@playwright/test";
 
-test("should load homepage with correct title", async ({ page }) => {
-  // Go to the home page
+test.describe("Login functionality", () => {
+  test.beforeEach("Go to login page",async ({page}) => {
+  // Launch url and assert title and header
   await page.goto("https://katalon-demo-cura.herokuapp.com/");
-
-  // Assert if the title is correct
   await expect(page).toHaveTitle("CURA Healthcare Service");
-
-  // Assert header text
   await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
+  
+ // Click on the Make Appointment 
+ await page.getByRole("link",{name: "Make Appointment"}).click();
+ await expect(page.getByText("Please login to make")).toBeVisible();
+
+  });
+  
+test("should login successfully", async ({ page }) => {
+// Successful Login
+await page.getByLabel("Username").fill("John Doe");
+await page.getByLabel("Password").fill("ThisIsNotAPassword");
+await page.getByRole("button",{name: "Login"}).click();
+
+// Assert a text
+await expect(page.locator("h2")).toContainText("Make Appointment")
 });
 
-// This is for the example 
-test ("Should do something",{tag:"@smoke"}, async({page}, testInfo) =>{
- // steps....
- // Code block
+// Navigate test 
+test("should prevent login with incorrect credentials", async ({ page }) => {
+// Unsuccessful Login
+await page.getByLabel("Username").fill("John Smith");
+await page.getByLabel("Password").fill("ThisIsNotAPassword");
+await page.getByRole("button",{name: "Login"}).click();
+
+// Assert a text
+await expect(page.locator('#login')).toContainText('Login failed! Please ensure the username and password are valid.');
+});
 });
