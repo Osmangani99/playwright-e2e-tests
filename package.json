@@ -4,17 +4,16 @@
   "description": "Playwright E2E Tests with AI Capabilities incl MCP",
   "keywords": [
     "Playwright",
-    "Playwright",
     "e2e",
-    "test",
-    "Playwrigth",
     "MCP"
   ],
   "license": "ISC",
   "author": "Osman",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "demo": "npx playwright test tests/demo/mytest.spec.ts --headed"
+  },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.3.0"

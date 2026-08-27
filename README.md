@@ -41,3 +41,12 @@
 - tests-examples/
 - example.*
 - *.log
+
+## Writing First Test
+
+**Target web app: https://katalon-demo-cura.herokuapp.com/
+Steps
+Go to the home page
+Assert if the title is correct
+Assert header text
+Done! 🎉
