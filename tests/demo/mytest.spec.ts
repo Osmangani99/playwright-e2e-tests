@@ -18,7 +18,7 @@ test ("Should do something",{tag:"@smoke"}, async({page}, testInfo) =>{
 });
 
 // demo locator 
-test.only ("Should demo locator", async({page}, testInfo) =>{
+test ("Should demo locator", async({page}, testInfo) =>{
 
 // ✅`page.getBy()` and `page.locator()` methods returns the `locator` object
 // ✅The above methods not to be `awaited`
