@@ -59,3 +59,10 @@ Done! 🎉
 Help -> `npx playwright codegen` --help
 CLI basic command -> `npx playwright codegen`
 With URL -> `npx playwright codegen` https://katalon-demo-cura.herokuapp.com/
+
+**Deep Dive into Playwright Locators**
+
+- [ ] `page.getBy()` and `page.locator()` methods returns the `locator` object
+- [ ] The above methods not to be `awaited`
+- [ ] The type of locator is an `object`
+- [ ] Locators are LAZY until an action is fired on them
