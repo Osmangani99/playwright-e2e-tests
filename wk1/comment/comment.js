@@ -10,4 +10,4 @@
 
 // { } for classes, functions, objects, etc
 // [] for arrays
-// /abc/ for regex Or regular expressions 
+// /abc/ for regex Or regular expressions  fail 
