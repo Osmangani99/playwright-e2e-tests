@@ -74,3 +74,14 @@ With URL -> `npx playwright codegen` https://katalon-demo-cura.herokuapp.com/
 - Right click
 - Hover if link
 - Optional timeout if slow
+- Clear/click before filling
+- Fill
+- pressSequentially( Slow typing)
+
+## ELEMENT: Dropdown
+- Assert default option
+- Select by: 
+- label
+- Index
+- Assert the count
+- Get all dropdown values
