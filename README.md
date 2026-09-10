@@ -66,3 +66,11 @@ With URL -> `npx playwright codegen` https://katalon-demo-cura.herokuapp.com/
 - [ ] The above methods not to be `awaited`
 - [ ] The type of locator is an `object`
 - [ ] Locators are LAZY until an action is fired on them
+
+## ELEMENT: Button, link
+- Click 
+- Press
+- Double click
+- Right click
+- Hover if link
+- Optional timeout if slow
