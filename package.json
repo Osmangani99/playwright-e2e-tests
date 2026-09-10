@@ -16,7 +16,8 @@
     "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
     "make-apt" : "npx playwright test tests/functional/make.appmnt.spec.ts --headed",
     "elementInteraction": "npx playwright test tests/demo/element.handling.make.appmnt.spec.ts --headed",
-    "elementDropdown": "npx playwright test tests/demo/element.handling.dropdown.spec.ts --headed"
+    "elementDropdown": "npx playwright test tests/demo/element.handling.dropdown.spec.ts --headed",
+    "elementRadioButton": "npx playwright test tests/demo/element.handling.radioButton.spec.ts --headed"
 
 
   },
