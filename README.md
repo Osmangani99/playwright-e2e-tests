@@ -85,3 +85,5 @@ With URL -> `npx playwright codegen` https://katalon-demo-cura.herokuapp.com/
 - Index
 - Assert the count
 - Get all dropdown values
+- Assert the default option - to be checked/unchecked
+- Check/uncheck
