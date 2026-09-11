@@ -1,5 +1,9 @@
 # Instructions and Notes
 
+## General Tips for windows 
+- Format entire fileShift + Alt + F
+- copy line Shift + Alt + ↓ (Down) or ↑ (Up)
+
 ## In this session...
 ✅1. Install playwright
    - `npm init playwright@latest`
@@ -87,3 +91,8 @@ With URL -> `npx playwright codegen` https://katalon-demo-cura.herokuapp.com/
 - Get all dropdown values
 - Assert the default option - to be checked/unchecked
 - Check/uncheck
+
+**Scenario:**
+1. Login as standard user
+2. Get list of products with its price 
+3. Assert that all products have non-zero dollar value 
