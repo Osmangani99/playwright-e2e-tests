@@ -17,7 +17,8 @@
     "make-apt" : "npx playwright test tests/functional/make.appmnt.spec.ts --headed",
     "elementInteraction": "npx playwright test tests/demo/element.handling.make.appmnt.spec.ts --headed",
     "elementDropdown": "npx playwright test tests/demo/element.handling.dropdown.spec.ts --headed",
-    "elementRadioButton": "npx playwright test tests/demo/element.handling.radioButton.spec.ts --headed"
+    "elementRadioButton": "npx playwright test tests/demo/element.handling.radioButton.spec.ts --headed",
+    "Inventory": "npx playwright test tests/functional/inventory.spec.ts --headed"
 
 
   },
