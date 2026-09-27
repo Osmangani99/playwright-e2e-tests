@@ -32,4 +32,7 @@ test ("Should demo locator", async({page}, testInfo) =>{
   await page.getByRole('link', { name: 'Make Appointment' }).click();
   await expect(page.getByText('Please login to make')).toBeVisible();
 
+  let firstName: String = "Osman";
+  let FirstName: String = "Gani";
+  
 });
