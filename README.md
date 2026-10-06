@@ -3,6 +3,7 @@
 ## General Tips for windows 
 - Format entire fileShift + Alt + F
 - copy line Shift + Alt + ↓ (Down) or ↑ (Up)
+- short cut to emoji is (win + .)
 
 ## In this session...
 ✅1. Install playwright
