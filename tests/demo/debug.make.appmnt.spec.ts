@@ -25,6 +25,7 @@
 
         // Checkbox
         await page.getByText("Apply for hospital readmission").click();
+        await page.pause(); // Pause the test execution to inspect the state of the page
 
         // Radio button
         await page.getByRole("radio", { name: "Medicaid" }).check();
@@ -33,7 +34,7 @@
         const visitDate = page.getByRole("textbox", { name: "Visit Date (Required)" });
         await visitDate.click();
         await visitDate.fill("05/10/2027");
-        await visitDate.press("Enter"); // commit the typed date into the datepicker widget
+       // await visitDate.press("Enter"); // commit the typed date into the datepicker widget
         await page.locator("#appointment span").click(); // close the date picker
 
         // Comment

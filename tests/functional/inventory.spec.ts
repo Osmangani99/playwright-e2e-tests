@@ -4,9 +4,12 @@ import { test, expect } from "@playwright/test";
 
 /**
  * Scenario:
-1. Login as standard user
-2. Get list of products with its price 
-3. Assert that all products have non-zero dollar value 
+1. ✅Login as standard user
+1. ✅Login as standard user
+1. ✅Login as standard user
+1. ✅Login as standard user
+2. ✅Get list of products with its price 
+3. ✅Assert that all products have non-zero dollar value 
  */
 
 // We will learn aboout how do we handle multiple element 
@@ -32,11 +35,7 @@ test.describe("Inventory feature", () => {
         // Play with the code 
         await page.waitForTimeout(5000)
         console.log(await productsElms.allTextContents())
-        console.log("/////////////////////////////////////////////////////////////////////////////////////////")
         console.log(await productsElms.allInnerTexts())
-
-
-        // till here
 
         // Get product name and prices
         let totalProducts = await productsElms.count();
@@ -49,12 +48,44 @@ test.describe("Inventory feature", () => {
             let productName = await eleNode.locator(".inventory_item_name").innerText();
 
         //     // Price
-        //     let price = await eleNode.locator(".inventory_item_price").innerText();
+            let price = await eleNode.locator(".inventory_item_price").innerText();
 
         //     // Print the results
-        //     console.log(`Product: ${productName}, price: ${price}`);
+            console.log(`Product: ${productName}, price: ${price}`);
 
-        //     priceArr.push(price);
+            priceArr.push(price);
         }
+        console.log("Price list: ", priceArr); // Print the array of prices with the ' ' symbol and []  
+        // Price list:  [ '$29.99', '$9.99', '$15.99', '$49.99', '$7.99', '$15.99' ]
+        console.log(`original price list ${priceArr}`); // Print the array of prices without the ' ' symbol and [] but it is still an array
+        // original price list $29.99,$9.99,$15.99,$49.99,$7.99,$15.99
+
+        /**
+         * Now we will remove the $ symbol from the price list 
+         * And we will compare is the any 0 in the price list or not
+         */
+        priceArr = priceArr.map((price) => parseFloat(price.replace("$", "")));
+        console.log(`Price list after removing $ symbol: ${priceArr}`);
+        // Price list after removing $ symbol: 29.99,9.99,15.99,49.99,7.99,15.99
+
+        // Assert that all prices are non-zero values
+        // for (let price of priceArr) {
+        //     expect(price).toBeGreaterThan(0);
+        //     console.log(`Price ${price} is greater than 0`);
+        // }
+
+        let priceArrWithInvalidValus = priceArr.filter((iteam) => iteam <= 0);
+    
+        if (priceArrWithInvalidValus.length > 0) {
+          console.log(`ERROR:Zero price values found: ${priceArrWithInvalidValus}`);
+        } else {
+          console.log("All prices are non-zero values");
+        }
+        expect(priceArrWithInvalidValus).toHaveLength(0);
+        // expect(priceArrWithInvalidValus).toBeGreaterThan(0);
+
+        for (const price of priceArrWithInvalidValus) {
+        expect.soft(price, `Price should be > 0`).toBeGreaterThan(0);
+       }
   });
 });
