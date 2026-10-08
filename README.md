@@ -1,9 +1,11 @@
 # Instructions and Notes
 
 ## General Tips for windows 
-- Format entire fileShift + Alt + F
-- copy line Shift + Alt + ↓ (Down) or ↑ (Up)
-- short cut to emoji is (win + .)
+- Format entire file `Shift + Alt + F`
+- copy line `Shift + Alt + ↓ (Down) or ↑ (Up)`
+- short cut to emoji is `win + .`
+- formate the seleted lines `Ctrl + k` and `Ctrl + F`
+- want to see report  `npx playwright show-report`
 
 ## In this session...
 ✅1. Install playwright
@@ -97,3 +99,18 @@ With URL -> `npx playwright codegen` https://katalon-demo-cura.herokuapp.com/
 1. Login as standard user
 2. Get list of products with its price 
 3. Assert that all products have non-zero dollar value 
+
+**Allure Setup**
+1. Check if allure is installed globally -> `allure --version`, if not present
+2. Install allure commandline globally -> `npm install -g allure-commandline`
+3. Install 'Allure' Reporter for project level - `npm install -D allure-playwright`
+4. Add it in the config file
+```ts
+reporter: [
+  ['html'],                  // Default Playwright HTML reporter
+  ['allure-playwright'],     // Allure reporter
+],
+```
+6. Run a test and confirm that the new folder is created `allure-results`
+7. Spin up the report -> `allure serve`
+8. Done! 🎉

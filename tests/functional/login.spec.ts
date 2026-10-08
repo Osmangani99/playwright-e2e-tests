@@ -20,6 +20,7 @@ await page.getByLabel("Password").fill("ThisIsNotAPassword");
 await page.getByRole("button",{name: "Login"}).click();
 
 // Assert a text
+// TEMP: intentionally failing — original expected text is "Make Appointment"
 await expect(page.locator("h2")).toContainText("Make Appointment")
 });
 
