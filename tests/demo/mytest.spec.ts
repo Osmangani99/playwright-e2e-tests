@@ -37,6 +37,12 @@ test ("Should demo locator", async({page}, testInfo) =>{
   
 });
 
+// This method we know how to add testInfo
 test ("Should demo config file", async({page}, testInfo) =>{
 console.log(`config at run time: ${JSON.stringify(testInfo.config)}`);
+});
+
+// Theis method will print the browser name.
+test.only ("Should demo fixtures", async({page,browserName }, testInfo) =>{
+  console.log(`>> My current browser name is: ${browserName}`);
 });
