@@ -13,3 +13,8 @@ node_modules/
 - tests-examples/
 - example.*
 - *.log
+
+# Allure
+allure-results/
+allure-report/
+.allure/
