@@ -114,3 +114,7 @@ reporter: [
 6. Run a test and confirm that the new folder is created `allure-results`
 7. Spin up the report -> `allure serve`
 8. Done! 🎉
+
+**Screenshot**
+1. Config options ->`use` -> `screenshot`
+2. At test scope level
