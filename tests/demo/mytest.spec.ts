@@ -36,3 +36,7 @@ test ("Should demo locator", async({page}, testInfo) =>{
   let FirstName: String = "Gani";
   
 });
+
+test ("Should demo config file", async({page}, testInfo) =>{
+console.log(`config at run time: ${JSON.stringify(testInfo.config)}`);
+});

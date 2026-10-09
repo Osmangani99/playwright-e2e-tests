@@ -1,0 +1,78 @@
+{
+  "argv": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\workspace\\playwright-e2e-Tests\\node_modules\\@playwright\\test\\cli.js",
+    "test",
+    "tests/demo/mytest.spec.ts",
+    "--headed"
+  ],
+  "configFile": "C:\\workspace\\playwright-e2e-Tests\\playwright.config.ts",
+  "rootDir": "C:\\workspace\\playwright-e2e-Tests\\tests",
+  "failOnFlakyTests": false,
+  "forbidOnly": false,
+  "fullyParallel": true,
+  "globalSetup": null,
+  "globalTeardown": null,
+  "globalTimeout": 100000,
+  "grep": {},
+  "grepInvert": null,
+  "maxFailures": 0,
+  "metadata": { "actualWorkers": 4 },
+  "preserveOutput": "always",
+  "projects": [
+    {
+      "grep": {},
+      "grepInvert": null,
+      "outputDir": "C:\\workspace\\playwright-e2e-Tests\\test-results",
+      "repeatEach": 1,
+      "retries": 0,
+      "metadata": {},
+      "name": "chromium",
+      "testDir": "C:\\workspace\\playwright-e2e-Tests\\tests",
+      "snapshotDir": "C:\\workspace\\playwright-e2e-Tests\\tests",
+      "testIgnore": [],
+      "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+      "timeout": 30000,
+      "use": {
+        "trace": "on-first-retry",
+        "navigationTimeout": 30000,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36",
+        "viewport": { "width": 1280, "height": 720 },
+        "screen": { "width": 1920, "height": 1080 },
+        "deviceScaleFactor": 1,
+        "isMobile": false,
+        "hasTouch": false,
+        "defaultBrowserType": "chromium",
+        "headless": false
+      },
+      "dependencies": [],
+      "ignoreSnapshots": false,
+      "__projectId": "chromium"
+    }
+  ],
+  "quiet": false,
+  "reporter": [
+    ["html", { "open": "never" }],
+    [
+      "C:\\workspace\\playwright-e2e-Tests\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+      {
+        "details": true,
+        "suiteTitle": true,
+        "environmentInfo": {
+          "name": "TEST",
+          "appName": "CURA",
+          "Release": "Release 1.1",
+          "node_version": "v24.14.0"
+        }
+      }
+    ]
+  ],
+  "reportSlowTests": { "max": 5, "threshold": 300000 },
+  "shard": null,
+  "tags": [],
+  "updateSnapshots": "missing",
+  "updateSourceMethod": "patch",
+  "version": "1.62.1",
+  "workers": 7,
+  "webServer": null
+}
