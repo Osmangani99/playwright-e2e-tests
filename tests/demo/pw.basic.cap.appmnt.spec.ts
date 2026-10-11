@@ -1,6 +1,6 @@
     import { test, expect } from "@playwright/test";
 
-    test.describe("Make Appointment functionality", () => {
+    test.describe("Make Appointment functionality",{annotation:{type:"Story",description:"JIRA-1234: Make Appointment Feature "}}, () => {
         // Navigate to the Make Appointment page and login with valid credentials before each test
     test.beforeEach("Login with valid credentials", async ({ page },testInfo) => {
         // launch the application
@@ -25,7 +25,7 @@
     });
 
     // Test case to make an appointment with non-default values
-    test("should make an appointment with non-default values", async ({ page }, testInfo) => {
+    test("should make an appointment with non-default values", {annotation:{type:"Bug",description:"JIRA-5678: Failed to make appointment in firefox browser"},tag:"@smoke"} ,async ({ page }, testInfo) => {
         // Dropdown
         await page .getByLabel("Facility") .selectOption("Hongkong CURA Healthcare Center");
 
@@ -39,7 +39,7 @@
         const visitDate = page.getByRole("textbox", { name: "Visit Date (Required)" });
         await visitDate.click();
         await visitDate.fill("05/10/2027");
-       // await visitDate.press("Enter"); // commit the typed date into the datepicker widget
+        await visitDate.press("Enter"); // commit the typed date into the datepicker widget
         await page.locator("#appointment span").click(); // close the date picker
 
         // Comment
