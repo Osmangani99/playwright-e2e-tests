@@ -17,6 +17,7 @@ export default defineConfig({
   /* Run tests in files in parallel */
   fullyParallel: true,
   globalSetup: require.resolve('./tests/helpers/global-setup'),
+  globalTeardown: require.resolve('./tests/helpers/global-teardown'),
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
