@@ -110,7 +110,7 @@ reporter: [
   ['html'],                  // Default Playwright HTML reporter
   ['allure-playwright'],     // Allure reporter
 ],
-```
+
 6. Run a test and confirm that the new folder is created `allure-results`
 7. Spin up the report -> `allure serve`
 8. Done! 🎉
@@ -122,7 +122,6 @@ reporter: [
 ## Common Combinations
 
 ### For Stable CI Testing
-```ts
 args: [
   "--no-sandbox",
   "--disable-dev-shm-usage",
@@ -132,10 +131,9 @@ args: [
   "--no-first-run",
   "--disable-default-apps"
 ]
-```
+
 
 ### For Cross-Origin Testing this the helpful tips for CI customes run
-```ts
 args: [
   "--disable-web-security",
   "--disable-features=VizDisplayCompositor",
