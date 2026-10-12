@@ -118,3 +118,36 @@ reporter: [
 **Screenshot**
 1. Config options ->`use` -> `screenshot`
 2. At test scope level
+
+## Common Combinations
+
+### For Stable CI Testing
+```ts
+args: [
+  "--no-sandbox",
+  "--disable-dev-shm-usage",
+  "--disable-gpu",
+  "--disable-extensions",
+  "--disable-background-networking",
+  "--no-first-run",
+  "--disable-default-apps"
+]
+```
+
+### For Cross-Origin Testing this the helpful tips for CI customes run
+```ts
+args: [
+  "--disable-web-security",
+  "--disable-features=VizDisplayCompositor",
+  "--allow-running-insecure-content",
+  "--disable-background-networking"
+]
+```
+
+### For Mobile
+```ts
+args: [
+    "--use-mobile-user-agent",
+    "--touch-events=enabled",
+    "--enable-viewport-meta"
+  ]

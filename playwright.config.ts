@@ -54,13 +54,17 @@ export default defineConfig({
     navigationTimeout: 30_000,
     screenshot: "only-on-failure",
     // video: "retain-on-failure",
+    // actionTimeout: 30_000, If you set this time. It will be defult timeout for all actions
+    // launchOptions: 
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: { 
+        ...devices["Desktop Chrome"],
+       },
     },
 
     // {
