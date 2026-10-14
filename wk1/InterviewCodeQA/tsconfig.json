@@ -1,0 +1,13 @@
+{
+  // Treat every .ts file in this folder as its own separate file,
+  // so the same variable name (e.g. "count") can be used in more than one file.
+  "compilerOptions": {
+    "moduleDetection": "force",
+    "strict": true,
+    "noEmit": true,
+    "target": "ES2022",
+    "module": "nodenext",
+    "skipLibCheck": true,
+    "types": ["node"]
+  }
+}
