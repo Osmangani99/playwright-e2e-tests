@@ -1,4 +1,5 @@
 import { test, expect} from "@playwright/test";
+import { devices } from "@playwright/test";
 
 test("should load homepage with correct title", async ({ page }) => {
   // Go to the home page
@@ -37,6 +38,13 @@ test ("Should demo locator", async({page}, testInfo) =>{
   
 });
 
+// demo config file print the config file and save it in debug as config-at-runtime.json
 test ("Should demo config file", async({page}, testInfo) =>{
 console.log(`config at run time: ${JSON.stringify(testInfo.config)}`);
+});
+
+// Printing all the devices available in playwright and save it in debug as devices.json 
+// without testInfo playwright also provides the devices
+test.only ("Should demo devices", async({page}, testInfo) =>{
+console.log(`The list of devices: ${Object.keys(devices)}`);
 });

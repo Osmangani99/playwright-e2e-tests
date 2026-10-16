@@ -1,4 +1,5 @@
     import { test, expect } from "@playwright/test";
+import { json } from "node:stream/consumers";
 
     test.describe("Make Appointment functionality", () => {
         // Navigate to the Make Appointment page and login with valid credentials before each test
@@ -19,7 +20,11 @@
     });
 
     // Test case to make an appointment with non-default values
-    test("should make an appointment with non-default values", async ({ page }) => {
+    test("should make an appointment with non-default values", async ({ page }, testInfo) => {
+
+        // Print current config details
+        console.log(`current config details \n: ${JSON.stringify(testInfo.config)}`);
+
         // Dropdown
         await page .getByLabel("Facility") .selectOption("Hongkong CURA Healthcare Center");
 

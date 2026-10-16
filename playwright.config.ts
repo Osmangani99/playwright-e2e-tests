@@ -54,7 +54,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
     navigationTimeout: 30_000,
-    screenshot: "only-on-failure",
+    screenshot: "on",
     // video: "retain-on-failure",
     // actionTimeout: 30_000, If you set this time. It will be defult timeout for all actions
     // launchOptions: 
@@ -68,7 +68,6 @@ export default defineConfig({
         ...devices["Desktop Chrome"],
        },
     },
-
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },
@@ -76,7 +75,7 @@ export default defineConfig({
 
     // {
     //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   use: { ...devices['Desktop Safari'], ignoreHTTPSErrors: true },
     // },
 
     /* Test against mobile viewports. */
@@ -98,6 +97,10 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
+    {
+      name: "Galaxy A55",
+      use: {...devices["Galaxy A55"] },
+    }
   ],
 
   /* Run your local dev server before starting the tests */
