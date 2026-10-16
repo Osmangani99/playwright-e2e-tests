@@ -6,6 +6,7 @@
 - short cut to emoji is `win + .`
 - formate the seleted lines `Ctrl + k` and `Ctrl + F`
 - want to see report  `npx playwright show-report`
+- Replace all in txt file click `Ctrl+ H`
 
 ## In this session...
 ✅1. Install playwright
