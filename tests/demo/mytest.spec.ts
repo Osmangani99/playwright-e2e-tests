@@ -45,6 +45,15 @@ console.log(`config at run time: ${JSON.stringify(testInfo.config)}`);
 
 // Printing all the devices available in playwright and save it in debug as devices.json 
 // without testInfo playwright also provides the devices
-test.only ("Should demo devices", async({page}, testInfo) =>{
+test("Should demo devices", async({page}, testInfo) =>{
 console.log(`The list of devices: ${Object.keys(devices)}`);
+});
+
+// Parallel run demo
+test.only ("Should demo parallel run 1",{tag: `@demo`}, async({page}, testInfo) =>{
+await page.goto('https://www.google.com/');
+});
+
+test.only ("Should demo parallel run 2",{tag: `@demo`}, async({page}, testInfo) =>{
+await page.goto('https://www.google.com/');
 });
