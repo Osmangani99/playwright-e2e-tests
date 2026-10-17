@@ -68,10 +68,10 @@ export default defineConfig({
         ...devices["Desktop Chrome"],
        },
     },
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
     // {
     //   name: 'webkit',
@@ -97,10 +97,10 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-    {
-      name: "Galaxy A55",
-      use: {...devices["Galaxy A55"] },
-    }
+    // {
+    //   name: "Galaxy A55",
+    //   use: {...devices["Galaxy A55"] },
+    // }
   ],
 
   /* Run your local dev server before starting the tests */
