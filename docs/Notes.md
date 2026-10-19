@@ -85,6 +85,35 @@ reporter: [
 
 
 ## Data handling inplaywright 
+
 **Handling Static/Constants Data**
 1. Store all static data and constants in constants.json under the /data folder.
 2. Import the JSON file wherever required.
+
+
+
+### Parameterizing Tests – forEach Dataset
+
+1. Create a `test-data.ts` file under the `/data` folder.
+2. Create a `TestData` class and define a `static` method.
+3. Update the test data combinations.
+
+**Test Data Combinations**
+
+- **Dropdown**
+  - Tokyo CURA Healthcare Center
+  - Hongkong CURA Healthcare Center
+  - Seoul CURA Healthcare Center
+
+- **Healthcare Program**
+  - Medicare
+  - Medicaid
+  - None
+
+- **Different Dates**
+  - 05/10/2025
+  - 05/11/2025
+  - 05/12/2025
+
+4. Access the test data and confirm the iteration.
+5. Apply it to the `spec` file.
