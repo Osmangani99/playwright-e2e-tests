@@ -60,7 +60,7 @@ await page.goto('https://www.google.com/');
 });
 
 // Constants Data Handling
-test.only ("Should demo constants data", async({page}, testInfo) =>{
+test ("Should demo constants data", async({page}, testInfo) =>{
 await page.goto('https://www.google.com/');
 console.log(`>> this is my constants data: ${JSON.stringify(constants.STATUSCODES)}`)
 });

@@ -28,7 +28,7 @@ test.describe("Login functionality", () => {
 
   });
   
-test.only("should login successfully", async ({ page }) => {
+test ("should login successfully", async ({ page }) => {
 
    // Auto waiting test
 //  let userNameEle = page.getByLabel("Username");
