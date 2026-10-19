@@ -74,4 +74,17 @@ reporter: [
 3. What are the key components/setting affect the parall runs?
 
 4. Reference: `https://playwright.dev/docs/test-parallel`
-5. Done!🎉
+
+## Data alocation 
+1. API Endpoint(/user) = static Data             ---constants.json
+2. SQL Query Template = static Data              ---constants.json
+3. Password           = Sensitive Data           --- .env
+4. Test Data(data parameterization) = Test Data  ---parameterization
+5. App url            = Env Config               ---config file
+6. System Gen Auth/Token = Dynamic Data          ---Global setup
+
+
+## Data handling inplaywright 
+**Handling Static/Constants Data**
+1. Store all static data and constants in constants.json under the /data folder.
+2. Import the JSON file wherever required.

@@ -1,5 +1,6 @@
 import { test, expect} from "@playwright/test";
 import { devices } from "@playwright/test";
+import constants from "../../data/constants.json";
 
 test("should load homepage with correct title", async ({ page }) => {
   // Go to the home page
@@ -50,10 +51,16 @@ console.log(`The list of devices: ${Object.keys(devices)}`);
 });
 
 // Parallel run demo
-test.only ("Should demo parallel run 1",{tag: `@demo`}, async({page}, testInfo) =>{
+test ("Should demo parallel run 1",{tag: `@demo`}, async({page}, testInfo) =>{
 await page.goto('https://www.google.com/');
 });
 
-test.only ("Should demo parallel run 2",{tag: `@demo`}, async({page}, testInfo) =>{
+test ("Should demo parallel run 2",{tag: `@demo`}, async({page}, testInfo) =>{
 await page.goto('https://www.google.com/');
+});
+
+// Constants Data Handling
+test.only ("Should demo constants data", async({page}, testInfo) =>{
+await page.goto('https://www.google.com/');
+console.log(`>> this is my constants data: ${JSON.stringify(constants.STATUSCODES)}`)
 });
