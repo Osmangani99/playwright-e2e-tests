@@ -12,6 +12,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "demo:params": "npx playwright test tests/demo/params.make.appmnt.spec.ts --headed",
     "demo:parallel": "npx playwright test --grep @demo",
     "pw-adv-cap": "npx playwright test tests/demo/pw.adv.cap.login.spec.ts --headed",
     "demo:tag": "npx playwright test --grep @smoke --headed",
