@@ -123,3 +123,24 @@ Initialize a global variable in the `global-setup.ts` file.
 Set it anywhere in your project using `node.properties.<KEY>`.
 Access it anywhere, with the option to reset it in the `global-teardown.ts` file.
 Done! 🚀
+
+Steps to Follow
+
+1. Create a Config Fixture
+
+Create a new fixture file named config-fixtures.ts under the /helpers folder.
+Follow the existing documentation:
+Define the EnvConfig type and target fields.
+Define an option and provide a default value.
+Extend the existing test function to include the custom variables.
+
+2. Create a New Config
+
+Create a new config file named test.playwright.config.ts under the /config folder.
+Ensure there is only one export default defineConfig declaration.
+Update the root config export:
+Change export default defineConfig({}) to export const baseConfig = defineConfig({}).
+Import the root config and baseConfig from ../playwright.config.ts.
+Extend the root config settings using the spread operator.
+
+Note: The new config should extend the existing config settings rather than replace them.
