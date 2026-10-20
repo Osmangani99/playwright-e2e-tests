@@ -12,7 +12,8 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
  * See https://playwright.dev/docs/test-configuration.
  */
 console.log("Playwright config file loaded successfully..😊");
-export default defineConfig({
+
+export const baseConfig = defineConfig({
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,

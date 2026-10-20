@@ -3,9 +3,14 @@ import { json } from "node:stream/consumers";
 
     test.describe("Make Appointment functionality", () => {
         // Navigate to the Make Appointment page and login with valid credentials before each test
-    test.beforeEach("Login with valid credentials", async ({ page }) => {
+    test.beforeEach("Login with valid credentials", async ({ page }, testInfo) => {
+
+        // use custome config file to get the app URL env
+        const envConfig = testInfo.project.use as any // we can use @ts-ignore
+        await page.goto(envConfig.appURL);
+
         // launch the application
-        await page.goto("https://katalon-demo-cura.herokuapp.com/");
+        //await page.goto("https://katalon-demo-cura.herokuapp.com/");
         await expect(page).toHaveTitle("CURA Healthcare Service");
         await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
 
