@@ -98,7 +98,7 @@ reporter: [
 2. Create a `TestData` class and define a `static` method.
 3. Update the test data combinations.
 
-**Test Data Combinations**
+***Test Data Combinations***
 
 - **Dropdown**
   - Tokyo CURA Healthcare Center
@@ -144,3 +144,12 @@ Import the root config and baseConfig from ../playwright.config.ts.
 Extend the root config settings using the spread operator.
 
 Note: The new config should extend the existing config settings rather than replace them.
+
+
+**Handling Sensitive Data**
+
+1. Check or install if `dotenv` if not,
+   1. `npm install -D dotenv`
+2. Set the variables in `.env` config file
+3. Start using them with `process.env.<varname>`
+4. Done! 🎉

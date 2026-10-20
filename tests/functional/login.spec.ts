@@ -15,8 +15,8 @@ test.describe("Login functionality", () => {
   
 test("should login successfully", async ({ page }) => {
 // Successful Login
-await page.getByLabel("Username").fill("John Doe");
-await page.getByLabel("Password").fill("ThisIsNotAPassword");
+await page.getByLabel("Username").fill(process.env.TEST_USER_NAME);
+await page.getByLabel("Password").fill(process.env.TEST_PASSWORD);
 await page.getByRole("button",{name: "Login"}).click();
 
 // Assert a text
