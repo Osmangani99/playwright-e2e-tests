@@ -17,4 +17,8 @@ export default async function globalSetup(config: FullConfig) {
       console.log(">> [INFO]: allure-results deleted from the local run...😊");
     }
   }
+
+  // set login cookies global variable
+  process.env.LOGIN_COOKIES = undefined
+
 }

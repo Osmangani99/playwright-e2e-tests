@@ -22,17 +22,21 @@ test.describe("Make Appointment functionality", () => {
     await page.getByLabel("Username").fill("John Doe");
     await page.getByLabel("Password").fill("ThisIsNotAPassword");
     await page.getByRole("button", { name: "Login" }).click();
+
+    // get login cookies
+    const loginCookies = await page.context().cookies();
+    process.env.LOGIN_COOKIES = JSON.stringify(loginCookies);
+    // console.log(`>> This is my login cookies: ${JSON.stringify(loginCookies)}`)
   });
 
   // Test case to make an appointment with non-default values
   test(`${apptData.testId}: should make an appointment with non-default values`, async ({
     page,
   }, testInfo) => {
-    // Print current config details
-    console.log(
-      `current config details \n: ${JSON.stringify(testInfo.config)}`,
-    );
 
+
+    // access the login cookies 
+     console.log(`>> This is my login cookies: ${process.env.LOGIN_COOKIES}`)
     // Dropdown
     await page
       .getByLabel("Facility")

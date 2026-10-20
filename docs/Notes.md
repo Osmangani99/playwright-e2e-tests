@@ -117,3 +117,9 @@ reporter: [
 
 4. Access the test data and confirm the iteration.
 5. Apply it to the `spec` file.
+
+🌐 Global Data Setup — Dynamic Data
+Initialize a global variable in the `global-setup.ts` file.
+Set it anywhere in your project using `node.properties.<KEY>`.
+Access it anywhere, with the option to reset it in the `global-teardown.ts` file.
+Done! 🚀
