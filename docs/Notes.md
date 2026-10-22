@@ -153,3 +153,10 @@ Note: The new config should extend the existing config settings rather than repl
 2. Set the variables in `.env` config file
 3. Start using them with `process.env.<varname>`
 4. Done! 🎉
+
+### How to use .csv file for test data
+1. Create a `.csv` file 
+2. Read the file with native `fs` module
+3. Parse the csv data -> Array of data (install csv- parse) 
+4. console out the data 
+5. Done! 

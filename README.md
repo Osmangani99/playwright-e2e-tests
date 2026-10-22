@@ -7,6 +7,10 @@
 - formate the seleted lines `Ctrl + k` and `Ctrl + F`
 - want to see report  `npx playwright show-report`
 - Replace all in txt file click `Ctrl+ H`
+- To open any file from vscode `shift +Alt +R`
+
+## Mean
+-cwb -- current working diractory
 
 ## In this session...
 ✅1. Install playwright
