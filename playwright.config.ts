@@ -111,3 +111,5 @@ export const baseConfig = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
+
+export default baseConfig;
