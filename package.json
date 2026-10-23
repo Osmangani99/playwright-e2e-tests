@@ -13,6 +13,7 @@
   "main": "index.js",
   "scripts": {
     "demo:params": "npx playwright test tests/demo/params.make.appmnt.spec.ts --headed",
+    "demo:params-csv": "npx playwright test tests/demo/csv.params.make.appmnt.spec.ts --headed",
     "qa:make-apt": "npx playwright test --config=config/qa.playwright.config.ts tests/functional/make.appmnt.spec.ts --headed",
     "dev:make-apt": "npx playwright test --config=config/dev.playwright.config.ts tests/functional/make.appmnt.spec.ts --headed",
     "demo:parallel": "npx playwright test --grep @demo",

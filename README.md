@@ -1,13 +1,15 @@
 # Instructions and Notes
 
 ## General Tips for windows 
-- Format entire file `Shift + Alt + F`
-- copy line `Shift + Alt + ↓ (Down) or ↑ (Up)`
-- short cut to emoji is `win + .`
-- formate the seleted lines `Ctrl + k` and `Ctrl + F`
-- want to see report  `npx playwright show-report`
-- Replace all in txt file click `Ctrl+ H`
-- To open any file from vscode `shift +Alt +R`
+- Format entire file `Shift + Alt + F` ;
+- copy line `Shift + Alt + ↓ (Down) or ↑ (Up)` ;
+- short cut to emoji is `win + .` ;
+- formate the seleted lines `Ctrl + k` and `Ctrl + F` ;
+- want to see report  `npx playwright show-report` ;
+- Replace all in txt file click `Ctrl+ H` ;
+- To open any file from vscode `shift +Alt +R` ;
+- Fold click at the end `shift + Ctrl + [`;
+- comment one line `Ctrl + /`;
 
 ## Mean
 -cwb -- current working diractory
