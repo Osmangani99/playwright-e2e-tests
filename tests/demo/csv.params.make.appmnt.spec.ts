@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import fileHelper from "../helpers/file-helper";
 import path from "path";
+import chalk from "chalk";
 
 // const makeApptTestData = TestData.makeAppoinmentTestData();
 const csvFilePath = path.resolve(`${process.cwd()}/data/functional/make-aptmnt-test-data.csv`)
