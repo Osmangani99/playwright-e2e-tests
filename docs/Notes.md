@@ -160,3 +160,10 @@ Note: The new config should extend the existing config settings rather than repl
 3. Parse the csv data -> Array of data (install csv- parse) 
 4. console out the data 
 5. Done! 
+
+## Logger Setup 
+1. Install Chalk -> `npm -i --save-dev chalk`
+2.Create a file `test/helpers/logger.ts`
+3.Import the log function and start logging
+4. Run a test and see the logs 
+5. Done
