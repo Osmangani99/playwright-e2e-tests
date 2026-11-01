@@ -8,7 +8,8 @@ test.describe("Make Appointment functionality", () => {
     async ({ page }, testInfo) => {
       // use custome config file to get the app URL env
       const envConfig = testInfo.project.use as any; // we can use @ts-ignore
-      await page.goto(envConfig.appURL);
+      // appURL only exists in config/*.playwright.config.ts - fall back to CURA for the default config
+      await page.goto(envConfig.appURL ?? "https://katalon-demo-cura.herokuapp.com/");
 
       // Custome logs
       // await log("info",`*** Launching the web app in ${envConfig} ***`)

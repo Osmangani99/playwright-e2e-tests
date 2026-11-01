@@ -12,7 +12,7 @@ export default defineConfig<EnvConfig>({
   use: {
     ...baseConfig.use,
     envName: "QA",
-    // appURL: "https://katalon-demo-cura.herokuapp.com/",
+    appURL: "https://katalon-demo-cura.herokuapp.com/",
     // Local instance from docker/nopcommerce/docker-compose.yml (public demo is behind a bot check)
     nopCommerceWeb: "http://localhost:8081/login?returnUrl=%2Fadmin%2F",
     dbConfig: {

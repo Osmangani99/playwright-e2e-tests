@@ -75,7 +75,7 @@ test("Should demo constants data", async ({ page }, testInfo) => {
 });
 
 // test click Action
-test.only(
+test(
   "Should demo click Action",
   { tag: `@demo` },
   async ({ page }, testInfo) => {
@@ -87,7 +87,7 @@ test.only(
 
     // Base page action
     await page.goto("https://katalon-demo-cura.herokuapp.com/");
-    let ele = page.getByRole("link", { name: "Make-Appointment" });
+    let ele = page.getByRole("link", { name: "Make Appointment" });
 
     try {
       await expect(ele).toBeVisible({ timeout: 10_000 }); // Custom timeout: Default - 5 seconds

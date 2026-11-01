@@ -34,7 +34,7 @@
         const visitDate = page.getByRole("textbox", { name: "Visit Date (Required)" });
         await visitDate.click();
         await visitDate.fill("05/10/2027");
-       // await visitDate.press("Enter"); // commit the typed date into the datepicker widget
+        await visitDate.press("Enter"); // commit the typed date into the datepicker widget
         await page.locator("#appointment span").click(); // close the date picker
 
         // Comment
