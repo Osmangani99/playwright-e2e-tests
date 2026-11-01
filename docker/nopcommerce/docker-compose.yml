@@ -1,0 +1,30 @@
+# Local nopCommerce instance for E2E tests (no bot-protection, unlike the public demo).
+# Start:  docker compose -f docker/nopcommerce/docker-compose.yml up -d
+# Stop:   docker compose -f docker/nopcommerce/docker-compose.yml down
+# Reset:  add -v to "down" to wipe the database and start fresh.
+services:
+  nopcommerce:
+    image: nopcommerceteam/nopcommerce:latest
+    container_name: nopcommerce-web
+    restart: unless-stopped # nopCommerce exits to "restart" itself after install
+    ports:
+      - "8081:80" # 8080 is taken by the local Jenkins service
+    depends_on:
+      - postgres
+    volumes:
+      - nop_appdata:/app/App_Data
+
+  postgres:
+    image: postgres:16
+    container_name: nopcommerce-db
+    environment:
+      POSTGRES_USER: nop
+      POSTGRES_PASSWORD: nop_password
+      POSTGRES_DB: nopcommerce
+    volumes:
+      - nop_pgdata:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+
+volumes:
+  nop_appdata:
+  nop_pgdata:
