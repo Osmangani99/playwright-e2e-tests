@@ -10,7 +10,7 @@ class Student {
   }
 
   // Method
-  greet(courseName: string) {
+greet(courseName: string) {
     console.log(
       `👋 Welcome ${this.name}!, Glad to have you here in this ${courseName}`,
     );
