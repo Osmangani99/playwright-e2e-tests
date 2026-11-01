@@ -1,6 +1,7 @@
-import { test, expect} from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import { devices } from "@playwright/test";
 import constants from "../../data/constants.json";
+import { log } from "../../tests/helpers/logger";
 
 test("should load homepage with correct title", async ({ page }) => {
   // Go to the home page
@@ -13,54 +14,90 @@ test("should load homepage with correct title", async ({ page }) => {
   await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
 });
 
-// This is for the example 
-test ("Should do something",{tag:"@smoke"}, async({page}, testInfo) =>{
- // steps....
- // Code block
+// This is for the example
+test("Should do something", { tag: "@smoke" }, async ({ page }, testInfo) => {
+  // steps....
+  // Code block
 });
 
-// demo locator 
-test ("Should demo locator", async({page}, testInfo) =>{
-
-// ✅`page.getBy()` and `page.locator()` methods returns the `locator` object
-// ✅The above methods not to be `awaited`
-// ✅The type of locator is an `object`
-// ✅Locators are LAZY until an action is fired on them
+// demo locator
+test("Should demo locator", async ({ page }, testInfo) => {
+  // ✅`page.getBy()` and `page.locator()` methods returns the `locator` object
+  // ✅The above methods not to be `awaited`
+  // ✅The type of locator is an `object`
+  // ✅Locators are LAZY until an action is fired on them
 
   // 1. Launch URL
-  await page.goto('https://katalon-demo-cura.herokuapp.com/');
+  await page.goto("https://katalon-demo-cura.herokuapp.com/");
 
-  // 2. Click on the Make Appoinment 
-  await page.getByRole('link', { name: 'Make Appointment' }).click();
-  await expect(page.getByText('Please login to make')).toBeVisible();
+  // 2. Click on the Make Appoinment
+  await page.getByRole("link", { name: "Make Appointment" }).click();
+  await expect(page.getByText("Please login to make")).toBeVisible();
 
   let firstName: String = "Osman";
   let FirstName: String = "Gani";
-  
 });
 
 // demo config file print the config file and save it in debug as config-at-runtime.json
-test ("Should demo config file", async({page}, testInfo) =>{
-console.log(`config at run time: ${JSON.stringify(testInfo.config)}`);
+test("Should demo config file", async ({ page }, testInfo) => {
+  console.log(`config at run time: ${JSON.stringify(testInfo.config)}`);
 });
 
-// Printing all the devices available in playwright and save it in debug as devices.json 
+// Printing all the devices available in playwright and save it in debug as devices.json
 // without testInfo playwright also provides the devices
-test("Should demo devices", async({page}, testInfo) =>{
-console.log(`The list of devices: ${Object.keys(devices)}`);
+test("Should demo devices", async ({ page }, testInfo) => {
+  console.log(`The list of devices: ${Object.keys(devices)}`);
 });
 
 // Parallel run demo
-test ("Should demo parallel run 1",{tag: `@demo`}, async({page}, testInfo) =>{
-await page.goto('https://www.google.com/');
-});
+test(
+  "Should demo parallel run 1",
+  { tag: `@demo` },
+  async ({ page }, testInfo) => {
+    await page.goto("https://www.google.com/");
+  },
+);
 
-test ("Should demo parallel run 2",{tag: `@demo`}, async({page}, testInfo) =>{
-await page.goto('https://www.google.com/');
-});
+test(
+  "Should demo parallel run 2",
+  { tag: `@demo` },
+  async ({ page }, testInfo) => {
+    await page.goto("https://www.google.com/");
+  },
+);
 
 // Constants Data Handling
-test ("Should demo constants data", async({page}, testInfo) =>{
-await page.goto('https://www.google.com/');
-console.log(`>> this is my constants data: ${JSON.stringify(constants.STATUSCODES)}`)
+test("Should demo constants data", async ({ page }, testInfo) => {
+  await page.goto("https://www.google.com/");
+  console.log(
+    `>> this is my constants data: ${JSON.stringify(constants.STATUSCODES)}`,
+  );
 });
+
+// test click Action
+test.only(
+  "Should demo click Action",
+  { tag: `@demo` },
+  async ({ page }, testInfo) => {
+    // Default Action
+    await page.goto("https://katalon-demo-cura.herokuapp.com/");
+    // original element ('link', { name: 'Make Appointment' })
+    // let ele = page.getByRole('link', { name: 'Make-Appointment' });
+    // await ele.click();
+
+    // Base page action
+    await page.goto("https://katalon-demo-cura.herokuapp.com/");
+    let ele = page.getByRole("link", { name: "Make-Appointment" });
+
+    try {
+      await expect(ele).toBeVisible({ timeout: 10_000 }); // Custom timeout: Default - 5 seconds
+      await ele.click();
+    } catch (error) {
+      await log(
+        "error",
+        `Failed to click on the element: ${ele.toString()},original error: ${error}`,
+      );
+      throw error;
+    }
+  },
+);
