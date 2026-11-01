@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+// Public demo is behind a bot check - see tests/e2e/nopcommerce.e2e.spec.ts for the local version
+test.skip('test', async ({ page }) => {
   // Launch URL
     await page.goto('https://admin-demo.nopcommerce.com');
     await page.getByRole('textbox', { name: 'Email:' }).fill(`admin@yourstore.com`);
