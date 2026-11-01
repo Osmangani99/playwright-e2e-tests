@@ -167,3 +167,8 @@ Note: The new config should extend the existing config settings rather than repl
 3.Import the log function and start logging
 4. Run a test and see the logs 
 5. Done
+
+## Implementing Page Object Model
+1. Create a new page object nopcommerce.home.page.ts under /tests/page-objects folder.
+2. Import the BasePage to make use of already defined actions.
+3. Create the page object from the recorded flow.

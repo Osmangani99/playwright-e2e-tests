@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from "@playwright/test";
 import { log } from "../tests/helpers/logger";
 
-export class BasePage {
+export default class BasePage {
   readonly page: Page;
 
   constructor(page: Page) {

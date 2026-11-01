@@ -59,6 +59,7 @@ export const baseConfig = defineConfig({
     // video: "retain-on-failure",
     // actionTimeout: 30_000, If you set this time. It will be defult timeout for all actions
     // launchOptions: 
+    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
   },
 
   /* Configure projects for major browsers */
@@ -67,6 +68,9 @@ export const baseConfig = defineConfig({
       name: "chromium",
       use: { 
         ...devices["Desktop Chrome"],
+        launchOptions: {
+        args: ["--disable-blink-features=AutomationControlled", "--disable-features=IsolateOrigins,site-per-process", "--allow-no-sandbox-job"],
+        },
        },
     },
     // {

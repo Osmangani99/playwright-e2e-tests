@@ -1,15 +1,17 @@
-import { test as base } from '@playwright/test';
+import { test as base } from "@playwright/test";
 
 export type EnvConfig = {
-  envName: string,
-  appURL: string,
-  dbConfig: {}
+  envName: string;
+  appURL: string;
+  nopCommerceWeb: string;
+  dbConfig: {};
 };
 
 export const test = base.extend<EnvConfig>({
   // Define an option and provide a default value.
   // We can later override it in the config.
-  envName: ['qa', { option: true }],
-  appURL: ['<provideURL>', { option: true }],
+  envName: ["qa", { option: true }],
+  appURL: ["<provideURL>", { option: true }],
   dbConfig: [{}, { option: true }],
+  nopCommerceWeb: ["<provideURL>", { option: true }],
 });
