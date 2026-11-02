@@ -10,13 +10,20 @@ services:
     ports:
       - "8081:80" # 8080 is taken by the local Jenkins service
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy # wait until the database accepts connections
     volumes:
       - nop_appdata:/app/App_Data
 
   postgres:
     image: postgres:16
     container_name: nopcommerce-db
+    restart: unless-stopped # come back up with Docker Desktop after a reboot
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nop -d nopcommerce"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     environment:
       POSTGRES_USER: nop
       POSTGRES_PASSWORD: nop_password
