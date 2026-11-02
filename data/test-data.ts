@@ -19,6 +19,8 @@ export default class TestData {
    * - 05/12/2025
    *
    */
+
+  // This test data is used for the make appointment test in the CURA Healthcare demo app
   static makeAppoinmentTestData() {
     return [
       {
@@ -38,6 +40,16 @@ export default class TestData {
         facility: "Seoul CURA Healthcare Center",
         hcp: "None",
         visitDt: "05/12/2025",
+      },
+    ];
+  }
+
+  // This test data is uded for the POST call to create a user in the reqres.in API
+  static apiUserCreation() {
+    return [
+      {
+        name: "Osman Gani",
+        job: "leader",
       },
     ];
   }
