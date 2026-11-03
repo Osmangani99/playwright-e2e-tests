@@ -11,18 +11,18 @@ test.describe("REST API DEMO", () => {
 
   } )
 
-  // TODO : goes to env config file we resolve on top ⬆️
+  //TODO: goes to env config file we resolve on top ⬆️
   // const BaseURL = "https://reqres.in/api";
 
   //Make a GET call
   test("Should get list of users", async ({ request }) => {
     await log("info", `Making a GET call to get list of users ${envConfig.apiURL}`);
-    // TODO : goes to constants file [DONE ⬇️]
+    // TODO: goes to constants file [DONE ⬇️]
     // The url is came from your constants.json ⬇️
     const response = await request.get(`${envConfig.apiURL}${constants.REQ_RES_ENDPOINTS.GET_USERS_LIST}`, {
       headers: {
 
-        // TODO : goes to .env [ DONE ⬇️]
+        // TODO: goes to .env [ DONE ⬇️]
         "x-api-key": process.env.RES_RES_API_KEY
       },
     });
@@ -42,7 +42,7 @@ test.describe("REST API DEMO", () => {
     await log("info", `Making a POST call users ${envConfig.apiURL}`);
 
     // This is the POST call body we are using ( data: payload) as payload in the call 
-    //TODO : goe to test data file
+    //TODO: goe to test data file
     const payload = TestData.apiUserCreation()[0];
 
     // We user this payload in the POST call which is replace on the top ⬆️

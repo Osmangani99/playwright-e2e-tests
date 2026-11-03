@@ -12,13 +12,14 @@
         await page.getByRole("link", { name: "Make Appointment" }).click();
         await expect(page.getByText("Please login to make")).toBeVisible();
 
+        
         // Successful Login
             await page.getByLabel("Username").fill("John Doe");
             await page.getByLabel("Password").fill("ThisIsNotAPassword");
             await page.getByRole("button", { name: "Login" }).click();
         /**
          * Adding custome screenshot at test scope level
-         * TODO : add this as a helper function 
+         * TODO: add this as a helper function 
          */
            let fullPageScreenshot = await page.screenshot({fullPage:true});
            await testInfo.attach("login page",{body:fullPageScreenshot,contentType:"image/png"});
