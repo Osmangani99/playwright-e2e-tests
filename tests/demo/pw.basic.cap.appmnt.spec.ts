@@ -1,34 +1,65 @@
-    import { test, expect } from "@playwright/test";
+import { test, expect } from "@playwright/test";
+import pwHelper from "../helpers/pw-helper";
 
-    test.describe("Make Appointment functionality",{annotation:{type:"Story",description:"JIRA-1234: Make Appointment Feature "}}, () => {
-        // Navigate to the Make Appointment page and login with valid credentials before each test
-    test.beforeEach("Login with valid credentials", async ({ page },testInfo) => {
+test.describe(
+  "Make Appointment functionality",
+  {
+    annotation: {
+      type: "Story",
+      description: "JIRA-1234: Make Appointment Feature ",
+    },
+  },
+  () => {
+    // Navigate to the Make Appointment page and login with valid credentials before each test
+    test.beforeEach(
+      "Login with valid credentials",
+      async ({ page }, testInfo) => {
         // launch the application
         await page.goto("https://katalon-demo-cura.herokuapp.com/");
         await expect(page).toHaveTitle("CURA Healthcare Service");
-        await expect(page.locator("//h1")).toHaveText("CURA Healthcare Service");
+        await expect(page.locator("//h1")).toHaveText(
+          "CURA Healthcare Service",
+        );
 
         // Click on the Make Appointment
         await page.getByRole("link", { name: "Make Appointment" }).click();
         await expect(page.getByText("Please login to make")).toBeVisible();
 
-        
         // Successful Login
-            await page.getByLabel("Username").fill("John Doe");
-            await page.getByLabel("Password").fill("ThisIsNotAPassword");
-            await page.getByRole("button", { name: "Login" }).click();
+        await page.getByLabel("Username").fill("John Doe");
+        await page.getByLabel("Password").fill("ThisIsNotAPassword");
+        await page.getByRole("button", { name: "Login" }).click();
         /**
          * Adding custome screenshot at test scope level
-         * TODO: add this as a helper function 
+         * TODO: add this as a helper function
          */
-           let fullPageScreenshot = await page.screenshot({fullPage:true});
+
+        await pwHelper.takeFullPageScreenshot(page, "login page");
+
+        /**
+         * ⬆️This is the default way to take screenshot and attach it to the report and we are using the helper function to do the same 
+         * let fullPageScreenshot = await page.screenshot({fullPage:true});
            await testInfo.attach("login page",{body:fullPageScreenshot,contentType:"image/png"});
-    });
+         */
+      },
+    );
 
     // Test case to make an appointment with non-default values
-    test("should make an appointment with non-default values", {annotation:{type:"Bug",description:"JIRA-5678: Failed to make appointment in firefox browser"},tag:"@smoke"} ,async ({ page }, testInfo) => {
+    test(
+      "should make an appointment with non-default values",
+      {
+        annotation: {
+          type: "Bug",
+          description:
+            "JIRA-5678: Failed to make appointment in firefox browser",
+        },
+        tag: "@smoke",
+      },
+      async ({ page }, testInfo) => {
         // Dropdown
-        await page .getByLabel("Facility") .selectOption("Hongkong CURA Healthcare Center");
+        await page
+          .getByLabel("Facility")
+          .selectOption("Hongkong CURA Healthcare Center");
 
         // Checkbox
         await page.getByText("Apply for hospital readmission").click();
@@ -37,19 +68,29 @@
         await page.getByRole("radio", { name: "Medicaid" }).check();
 
         // Date picker
-        const visitDate = page.getByRole("textbox", { name: "Visit Date (Required)" });
+        const visitDate = page.getByRole("textbox", {
+          name: "Visit Date (Required)",
+        });
         await visitDate.click();
         await visitDate.fill("05/10/2027");
         await visitDate.press("Enter"); // commit the typed date into the datepicker widget
         await page.locator("#appointment span").click(); // close the date picker
 
         // Comment
-        await page.getByRole("textbox", { name: "Comment" }).fill("This is a multi-line comments \ncapture by playwright codegen");
+        await page
+          .getByRole("textbox", { name: "Comment" })
+          .fill(
+            "This is a multi-line comments \ncapture by playwright codegen",
+          );
 
         // Click on the Book Appointment button
         await page.getByRole("button", { name: "Book Appointment" }).click();
-        // assert the confirmation page is displayed 
-        await expect(page.getByRole("heading", { name: "Appointment Confirmation" })).toBeVisible();
+        // assert the confirmation page is displayed
+        await expect(
+          page.getByRole("heading", { name: "Appointment Confirmation" }),
+        ).toBeVisible();
         await page.waitForTimeout(5000); // wait for 5 seconds to see the confirmation page
-    });
-    });
+      },
+    );
+  },
+);
