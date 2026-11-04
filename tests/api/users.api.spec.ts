@@ -2,6 +2,7 @@ import { test, expect, request } from "@playwright/test";
 import { log } from "../helpers/logger";
 import constants from "../../data/constants.json";
 import TestData from "../../data/test-data";
+import fileHelper from "../helpers/file-helper";
 
 test.describe("REST API DEMO", () => {
 
@@ -34,6 +35,10 @@ test.describe("REST API DEMO", () => {
     // Get list of users
     const userData = await response.json();
     log("info", `List of users: ${JSON.stringify(userData)}`);
+
+    // write the list of users to a file
+    fileHelper.writeFile(`${process.cwd()}/data/api-responses/list-of-users.json`,`${JSON.stringify(userData,undefined,4)}`);
+
   });
 
 
