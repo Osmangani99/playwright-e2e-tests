@@ -15,7 +15,7 @@ test.describe("REST API DEMO", () => {
   //TODO: goes to env config file we resolve on top ⬆️
   // const BaseURL = "https://reqres.in/api";
 
-  //Make a GET call
+  // Make a GET call
   test("Should get list of users", async ({ request }) => {
     await log("info", `Making a GET call to get list of users ${envConfig.apiURL}`);
     // TODO: goes to constants file [DONE ⬇️]
