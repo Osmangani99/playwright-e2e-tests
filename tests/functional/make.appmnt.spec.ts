@@ -28,7 +28,7 @@ test.describe("Make Appointment functionality", () => {
       await page.getByLabel("Password").fill("ThisIsNotAPassword");
       await page.getByRole("button", { name: "Login" }).click();
       await log("info", "*** The login is successful ***");
-      await log("error", "!!!!!!! The next page did not load !!!!!!!!!!");
+      await log("warn", "!!!!!!! The next page did not load !!!!!!!!!!");
     },
   );
 
