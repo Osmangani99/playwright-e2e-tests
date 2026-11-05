@@ -172,3 +172,8 @@ Note: The new config should extend the existing config settings rather than repl
 1. Create a new page object nopcommerce.home.page.ts under /tests/page-objects folder.
 2. Import the BasePage to make use of already defined actions.
 3. Create the page object from the recorded flow.
+
+## E2E Test - Complete Page Objects 
+1. Capture the customer search using codegen for the web appt: `https://admin-demo.nopcommerce.com/login?returnUrl=%2Fadmin%2F`
+2. Copy the existing `page-objects` and re-use the format
+3. Done ✔️

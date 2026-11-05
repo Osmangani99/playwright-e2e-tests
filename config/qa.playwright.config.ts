@@ -15,7 +15,7 @@ export default defineConfig<EnvConfig>({
     appURL: "https://katalon-demo-cura.herokuapp.com/",
     apiURL: "https://reqres.in/api",
     // Local instance from docker/nopcommerce/docker-compose.yml (public demo is behind a bot check)
-    nopCommerceWeb: "http://localhost:8081/login?returnUrl=%2Fadmin%2F",
+    nopCommerceWeb: "http://localhost:8081",
     dbConfig: {
       server: "",
       dbname: "",
