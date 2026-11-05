@@ -177,3 +177,21 @@ Note: The new config should extend the existing config settings rather than repl
 1. Capture the customer search using codegen for the web appt: `https://admin-demo.nopcommerce.com/login?returnUrl=%2Fadmin%2F`
 2. Copy the existing `page-objects` and re-use the format
 3. Done ✔️
+
+
+**Playwright MCP Server – In Action**
+
+1. Create a new spec file named `multi.window.spec.ts` under the `functional` folder.
+
+2. And capture the flows as below:
+   - Navigate to site: `https://the-internet.herokuapp.com/`
+   - Click on the "Multiple Windows" link.
+   - Navigate to the newly opened window and assert the header.
+   - Click on the link in the newly opened window.
+   - Navigate to the next window that opens.
+   - Assert the header text.
+   - Switch back to the parent window.
+
+3. Add a new key in `package.json` file
+
+4. run the spec in `headed` mode
