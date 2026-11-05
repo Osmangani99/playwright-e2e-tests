@@ -42,7 +42,7 @@ export default class CustomerListPage extends BasePage {
     await this.click(this.searchBtn);
 
     // Check whether the customer present
-    await this.page.waitForTimeout(1_5000); //1.5s delay
+    await this.page.waitForTimeout(1_500); //1.5s delay
     let customerNotFound = await this.noResultMessage.isVisible();
     return customerNotFound;
   }
