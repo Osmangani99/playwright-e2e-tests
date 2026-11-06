@@ -195,3 +195,25 @@ Note: The new config should extend the existing config settings rather than repl
 3. Add a new key in `package.json` file
 
 4. run the spec in `headed` mode
+
+## How you install and use jenkins 
+** Jenkins Pipeline Setup**
+1. Set up pipeline with the following setting
+ 1. Set up the git URL
+2. Add ** plugins**
+ 1. node.js
+ 2. Allure
+3. Setup **tools**
+ 1. Node.js(Pickup the LTS version)
+ 2. Allure Commandline
+4. Run the Commandline 
+5. Done    
+
+** Jenkins Pipeline Run **
+1. Jekins file Creation
+2. Set up credentials 
+3. Run the file workspace
+4. know the workspace
+5. know the stages 
+6. Allure the stages 
+7. Done 
