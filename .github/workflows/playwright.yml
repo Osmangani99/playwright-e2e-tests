@@ -18,14 +18,37 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: lts/*
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
       - name: Install dependencies
         run: npm ci
+      - name: Install Allure Commandline
+        run: npm install --global allure-commandline
       - name: Install Playwright Browsers
         # run: npx playwright install --with-deps
         run: npx playwright install --with-deps chromium # only the browser enabled in playwright.config.ts
         timeout-minutes: 10 # fail fast if the install hangs
       - name: Run Playwright tests
         run: npm run qa:make-apt
+      - name: Generate Allure report
+        if: ${{ always() }}
+        run: allure generate allure-results --clean --output allure-report
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v5
+        if: ${{ always() }}
+        with:
+          name: allure-report
+          path: allure-report/
+          retention-days: 30
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v5
+        if: ${{ always() }}
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 30
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
