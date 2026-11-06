@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools { 
-    nodejs 'node26' // Jenkins > Global Tool Config: NodeJS named "node22"
+    nodejs 'node26' // Jenkins > Global Tool Config: NodeJS named "node26"
      allure 'allure'// Jenkins > Global Tool Config: Allure named "allure"
     }
     options {
@@ -9,23 +9,24 @@ pipeline {
   }
   // Binds TEST_CREDS_USR and TEST_CREDS_PSW
   environment { TEST_CREDS = credentials('e2e-test-user') }
-  // -eu: shell safety setting (e -Exit immediately if any command fails; u- Treat unset variables as errors.)
+  // Jenkins runs on Windows, so use 'bat' (there is no 'sh' on Windows).
+  // 'call' is required for npm/npx (.cmd files) or the script stops after the first one.
+  // '|| exit /b 1' stops the build on the first failing command (replaces 'set -eu').
   stages {
     stage('Build') {
       steps {
-        sh '''
-          set -eu 
-          npm ci
-          npx playwright install
+        bat '''
+          call npm ci || exit /b 1
+          call npx playwright install chromium || exit /b 1
         '''
       }
     }
     stage('Test') {
       steps {
-        sh '''
-          export TEST_USER_NAME="$TEST_CREDS_USR"
-          export TEST_PASSWORD="$TEST_CREDS_PSW"
-          npm run test:make-apt
+        bat '''
+          set "TEST_USER_NAME=%TEST_CREDS_USR%"
+          set "TEST_PASSWORD=%TEST_CREDS_PSW%"
+          call npm run qa:make-apt
         '''
       }
       post {
