@@ -6,7 +6,8 @@ on:
     branches: [main, master]
 jobs:
   test:
-    timeout-minutes: 60
+    # timeout-minutes: 60
+    timeout-minutes: 20 # 1 test doesn't need an hour
     runs-on: ubuntu-latest
     env:
       RUNNER: ${{secrets.RUNNER}}
@@ -20,7 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        # run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium # only the browser enabled in playwright.config.ts
+        timeout-minutes: 10 # fail fast if the install hangs
       - name: Run Playwright tests
         run: npm run qa:make-apt
       - uses: actions/upload-artifact@v5
