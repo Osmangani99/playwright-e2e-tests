@@ -23,6 +23,7 @@
     "pw-adv-cap": "npx playwright test tests/demo/pw.adv.cap.login.spec.ts --headed",
     "demo:tag": "npx playwright test --grep @smoke --headed",
     "login": "npx playwright test tests/functional/login.spec.ts --headed",
+    "cura-positive-login": "npx playwright test tests/functional/cura-positive-login.spec.ts --headed",
     "demo:global": "npx playwright test tests/functional/login.spec.ts",
     "demo": "npx playwright test tests/demo/mytest.spec.ts --headed",
     "pw-basic-cap": "npx playwright test tests/demo/pw.basic.cap.appmnt.spec.ts --headed",
